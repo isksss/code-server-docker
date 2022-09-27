@@ -1,0 +1,17 @@
+services:
+  code:
+    # build:
+    #   context: ./dockerfile/
+    #   args:
+    #     - DOCKER_UID=${DOCKER_UID}
+    #     - DOCKER_USER=${DOCKER_USER}
+    #     - DOCKER_PASSWORD=${DOCKER_PASSWORD}
+    image: codercom/code-server
+    environment:
+      PASSWORD: ${DOCKER_PASSWORD}
+    volumes:
+      # - ./project:/home/${DOCKER_USER}/
+      - ./project:/root/project
+    restart: always
+    ports:
+      - ${PORT}:8080
