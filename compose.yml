@@ -28,6 +28,6 @@ services:
       HSTS_MAX_AGE: 60
       # STAGE: 'production' 
     volumes:
-      - /data/ssl_certs:/var/lib/https-portal
+      - ./data/ssl_certs:/var/lib/https-portal
     depends_on: 
       - code
