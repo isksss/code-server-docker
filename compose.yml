@@ -29,4 +29,5 @@ services:
       # STAGE: 'production' 
     volumes:
       - /data/ssl_certs:/var/lib/https-portal
-    depends_on: code
+    depends_on: 
+      - code
