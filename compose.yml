@@ -13,5 +13,15 @@ services:
       # - ./project:/home/${DOCKER_USER}/
       - ./project:/root/project
     restart: always
+  
+  https-portal:
+    image: steveltn/https-portal:latest
+    container_name: https-portal
     ports:
-      - ${PORT}:8080
+      - 80:80
+      - 443:443
+    restart: always
+    environment:
+      DOMAINS: '${DOMAIN} -> http://code:8080'
+      # STAGE: 'production' 
+    depend_on: code
