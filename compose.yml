@@ -23,5 +23,10 @@ services:
     restart: always
     environment:
       DOMAINS: '${DOMAIN} -> http://code:8080'
+      WEBSOCKET: "true"
+      CLIENT_MAX_BODY_SIZE: 10M
+      HSTS_MAX_AGE: 60
       # STAGE: 'production' 
-    depend_on: code
+    volumes:
+      - /data/ssl_certs:/var/lib/https-portal
+    depends_on: code
