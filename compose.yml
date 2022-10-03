@@ -11,7 +11,7 @@ services:
       PASSWORD: ${DOCKER_PASSWORD}
     volumes:
       # - ./project:/home/${DOCKER_USER}/
-      - ./project:/root/project
+      - ./project:/home/coder/project
     restart: always
   
   https-portal:
